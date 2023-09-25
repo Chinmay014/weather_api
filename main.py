@@ -30,9 +30,9 @@ def weather(station,date):
     # Faster approach
     filename = "data/TG_STAID"+str(station).zfill(6)+".txt"
     print(filename)
-    df = pd.read_csv(filename,skiprows=20)
+    df = pd.read_csv(filename,skiprows=20,parse_dates=["    DATE"])
     # finite_df = df.loc(df['   TG']!=-9999)
-    temperature = df.loc[df["    DATE"]==int(date)]['   TG'].squeeze()/10
+    temperature = df.loc[df["    DATE"]==date]['   TG'].squeeze()/10
     print(temperature)
     return {"station":station,
             "date":date,
