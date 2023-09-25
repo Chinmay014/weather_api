@@ -14,16 +14,6 @@ def weather(station,date):
             "date":date,
             "temperature":temperature}
 
-# @app.route("/about/")
-# def about_us():
-#     return render_template("about.html")
 
-# @app.route("/contact/")
-# def contact_us():
-#     return render_template("contact.html")
-
-# @app.route("/store/")
-# def show_store():
-#     return render_template("store.html")
 if __name__=="__main__":
     app.run(debug=True)
