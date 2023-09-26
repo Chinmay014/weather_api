@@ -5,9 +5,13 @@ import glob,pathlib
 # create website object
 app = Flask("website")
 
+# extract station data from .txt file
+station_data = pd.read_csv("data/stations.txt",skiprows=17)
+station_data = station_data[["STAID","STANAME                                 "]]
+
 @app.route("/")
 def go_home():
-    return render_template("home.html")
+    return render_template("home.html",data = station_data.to_html())
 
 @app.route("/api/v1/<station>/<date>/")
 def weather(station,date):
